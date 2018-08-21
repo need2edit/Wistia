@@ -120,6 +120,7 @@ extension Wistia {
 }
 
 fileprivate func parse<T: Codable>(data: Data?, completionHandler: (T?, Error?) -> Void) {
+    print(#function)
     if let data = data {
         do {
             let decoder = JSONDecoder()
