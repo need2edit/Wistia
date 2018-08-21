@@ -85,6 +85,14 @@ extension Wistia {
 // MARK: - Routes & Endpoints
 extension Wistia {
     
+    
+    /// Controls the common places of interacting with the Wistia Data API.
+    ///
+    /// - medias: list all the medias in your Wistia account
+    /// - projects: list all the projects in your Wistia account
+    /// - media: show the details for a media with an ID
+    /// - mediaCaptions:  show the captions files for a media with an ID
+    /// - project:  show the details for a project with an ID
     enum Route {
         
         case medias
