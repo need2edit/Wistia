@@ -189,4 +189,41 @@ extension Wistia {
         task.resume()
     }
     
+    
+    /// Lists all the captions entries for a given media.
+    ///
+    /// - Parameters:
+    ///   - mediaId: the hashed id needed to identify the media item.
+    ///   - completionHandler: returns an optional array of captions entities or error. Error will be a network related error or a `WistiaError` depending on the issue.
+    func showCaptionsForMedia(mediaId: String, completionHandler: @escaping ([Media.Caption]?, Error?) -> Void) {
+        let route: Wistia.Route = .mediaCaptions(id: mediaId)
+        let request = createRequest(route: route, httpMethod: .get, queryParams: ["limit":"100"], httpBody: nil)
+        let task = session.dataTask(with: request) { (data, response, error) in
+            
+            if let error = error {
+                print(error)
+                return completionHandler([], error)
+            }
+            
+            parse(data: data, completionHandler: completionHandler)
+        }
+        task.resume()
+    }
+    
+    
+    /// Lists all the assets that match a given query. You often may just want the original video file.
+    ///
+    /// - Parameters:
+    ///   - mediaId: the hashed id needed to identify the media item.
+    ///   - assetType: the type of file that you want to filter by
+    ///   - completionHandler: returns an optional array of Media Assets or error. Error will be a network related error or a `WistiaError` depending on the issue.
+    func showAssetsForMedia(mediaId: String, matchingAssetType assetType: String, completionHandler: @escaping ([Media.Asset]?, Error?) -> Void) {
+        
+        showMedia(hashed_id: mediaId) { (media, error) in
+            let assets = media?.assets.filter { $0.type.localizedCaseInsensitiveContains(assetType) }
+            completionHandler(assets, error)
+        }
+        
+    }
+    
 }
