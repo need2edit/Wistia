@@ -118,3 +118,75 @@ extension Wistia {
     }
     
 }
+
+func parse<T: Codable>(data: Data?, completionHandler: (T?, Error?) -> Void) {
+    if let data = data {
+        do {
+            let decoder = JSONDecoder()
+            let item = try decoder.decode(T.self, from: data)
+            completionHandler(item, nil)
+        } catch {
+            completionHandler(nil, error)
+        }
+    } else {
+        completionHandler(nil, nil)
+    }
+}
+
+// MARK: - Networking
+extension Wistia {
+    
+    private func createRequest(route: Route, httpMethod: HTTPMethod, queryParams: [String: String], httpBody: Data?) -> URLRequest {
+        let urlString = baseURL + route.path + "?api_password=\(api_password)"
+        let url = URL(string: urlString)!
+        var request = URLRequest(url: url)
+        request.httpMethod = httpMethod.rawValue
+        request.httpBody = httpBody
+        return request
+    }
+    
+    
+    /// Gets the details for a project with a provided id.
+    ///
+    /// - Parameters:
+    ///   - hashed_id: the hashed id needed to identify the project.
+    ///   - completionHandler: returns an optional project or error. Error will be a network related error or a `WistiaError` depending on the issue.
+    func showProject(hashed_id: String, completionHandler: @escaping (Wistia.Project?, Error?) -> Void) {
+        
+        let route: Wistia.Route = .media(id: hashed_id)
+        let request = createRequest(route: route, httpMethod: .get, queryParams: ["limit":"100"], httpBody: nil)
+        let task = session.dataTask(with: request) { (data, response, error) in
+            
+            if let error = error {
+                print(error)
+                return completionHandler(nil, error)
+            }
+            parse(data: data, completionHandler: completionHandler)
+            
+        }
+        task.resume()
+    }
+    
+    
+    /// Show the details for a given media.
+    ///
+    /// - Parameters:
+    ///   - hashed_id: the hashed id needed to identify the media item.
+    ///   - completionHandler: returns an optional project or error. Error will be a network related error or a `WistiaError` depending on the issue.
+    func showMedia(hashed_id: String, completionHandler: @escaping (Wistia.Media?, Error?) -> Void) {
+        
+        let route: Wistia.Route = .project(id: hashed_id)
+        let request = createRequest(route: route, httpMethod: .get, queryParams: ["limit":"100"], httpBody: nil)
+        let task = session.dataTask(with: request) { (data, response, error) in
+            
+            if let error = error {
+                print(error)
+                return completionHandler(nil, error)
+            }
+            parse(data: data, completionHandler: completionHandler)
+            
+        }
+        task.resume()
+    }
+    
+}

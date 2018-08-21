@@ -2,14 +2,13 @@ import XCTest
 @testable import Wistia
 
 final class WistiaTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(Wistia().text, "Hello, World!")
+    
+    func testInit() {
+        let wistia = Wistia(api_password: "abcd123")
+        XCTAssertEqual(wistia.api_password, "abcd123")
     }
 
     static var allTests = [
-        ("testExample", testExample),
+        ("testInit", testInit),
     ]
 }
