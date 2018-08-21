@@ -80,3 +80,33 @@ extension Wistia {
     }
         
 }
+
+
+// MARK: - Routes & Endpoints
+extension Wistia {
+    
+    enum Route {
+        
+        case medias
+        case projects
+        case media(id: String)
+        case mediaCaptions(id: String)
+        case project(id: String)
+        
+        var path: String {
+            switch self {
+            case .medias:
+                return "medias"
+            case .media(let hashed_id):
+                return "medias/\(hashed_id).json"
+            case .mediaCaptions(let hashed_id):
+                return "medias/\(hashed_id)/captions.json"
+            case .projects:
+                return "projects"
+            case .project(let hashed_id):
+                return "projects/\(hashed_id).json"
+            }
+        }
+    }
+    
+}
