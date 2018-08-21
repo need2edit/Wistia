@@ -5,11 +5,11 @@ import Foundation
 public class Wistia {
     
     // MARK: Properties
-    let baseURL = "https://api.wistia.com/v1/"
-    let api_password: String
-    let session = URLSession.shared
+    public let baseURL = "https://api.wistia.com/v1/"
+    private let api_password: String
+    private let session = URLSession.shared
     
-    init(api_password: String) {
+    public init(api_password: String) {
         self.api_password = api_password
     }
     
@@ -18,10 +18,10 @@ public class Wistia {
 // MARK: - Error Handling
 extension Wistia {
     
-    enum WistiaError: Error, CustomStringConvertible {
+    public enum WistiaError: Error, CustomStringConvertible {
         case invalidAPIKey
         case noData
-        var description: String {
+        public var description: String {
             switch self {
                 
             case .invalidAPIKey:
@@ -38,44 +38,44 @@ extension Wistia {
 extension Wistia {
     
     // MARK: - Projects
-    struct Project: Codable {
-        let hashed_id: String
-        let medias: [Media]
+    public struct Project: Codable {
+        public let hashed_id: String
+        public let medias: [Media]
     }
     
     // MARK: - Medias
-    struct Media: Codable {
+    public struct Media: Codable {
         
-        let hashed_id: String
-        let name: String
-        let type: String
-        let description: String
-        let section: String?
+        public let hashed_id: String
+        public let name: String
+        public let type: String
+        public let description: String
+        public let section: String?
         
-        let thumbnail: Thumbnail
+        public let thumbnail: Thumbnail
         
-        let assets: [Asset]
+        public let assets: [Asset]
         
-        struct Thumbnail: Codable {
+        public struct Thumbnail: Codable {
             let url: URL
             let width: Int
             let height: Int
         }
         
-        struct Caption: Codable {
+        public struct Caption: Codable {
             let english_name: String
             let native_name: String
             let language: String
             let text: String
         }
         
-        struct Asset: Codable {
-            let url: URL
-            let contentType: String
-            let type: String
-            let fileSize: Int
-            let height: Int
-            let width: Int
+        public struct Asset: Codable {
+            public let url: URL
+            public let contentType: String
+            public let type: String
+            public let fileSize: Int
+            public let height: Int
+            public let width: Int
         }
     }
         
@@ -93,7 +93,7 @@ extension Wistia {
     /// - media: show the details for a media with an ID
     /// - mediaCaptions:  show the captions files for a media with an ID
     /// - project:  show the details for a project with an ID
-    enum Route {
+    public enum Route {
         
         case medias
         case projects
@@ -101,7 +101,7 @@ extension Wistia {
         case mediaCaptions(id: String)
         case project(id: String)
         
-        var path: String {
+        public var path: String {
             switch self {
             case .medias:
                 return "medias"
@@ -119,7 +119,7 @@ extension Wistia {
     
 }
 
-func parse<T: Codable>(data: Data?, completionHandler: (T?, Error?) -> Void) {
+fileprivate func parse<T: Codable>(data: Data?, completionHandler: (T?, Error?) -> Void) {
     if let data = data {
         do {
             let decoder = JSONDecoder()
@@ -151,7 +151,7 @@ extension Wistia {
     /// - Parameters:
     ///   - hashed_id: the hashed id needed to identify the project.
     ///   - completionHandler: returns an optional project or error. Error will be a network related error or a `WistiaError` depending on the issue.
-    func showProject(hashed_id: String, completionHandler: @escaping (Wistia.Project?, Error?) -> Void) {
+    public func showProject(hashed_id: String, completionHandler: @escaping (Wistia.Project?, Error?) -> Void) {
         
         let route: Wistia.Route = .media(id: hashed_id)
         let request = createRequest(route: route, httpMethod: .get, queryParams: ["limit":"100"], httpBody: nil)
@@ -173,7 +173,7 @@ extension Wistia {
     /// - Parameters:
     ///   - hashed_id: the hashed id needed to identify the media item.
     ///   - completionHandler: returns an optional project or error. Error will be a network related error or a `WistiaError` depending on the issue.
-    func showMedia(hashed_id: String, completionHandler: @escaping (Wistia.Media?, Error?) -> Void) {
+    public func showMedia(hashed_id: String, completionHandler: @escaping (Wistia.Media?, Error?) -> Void) {
         
         let route: Wistia.Route = .project(id: hashed_id)
         let request = createRequest(route: route, httpMethod: .get, queryParams: ["limit":"100"], httpBody: nil)
@@ -195,7 +195,7 @@ extension Wistia {
     /// - Parameters:
     ///   - mediaId: the hashed id needed to identify the media item.
     ///   - completionHandler: returns an optional array of captions entities or error. Error will be a network related error or a `WistiaError` depending on the issue.
-    func showCaptionsForMedia(mediaId: String, completionHandler: @escaping ([Media.Caption]?, Error?) -> Void) {
+    public func showCaptionsForMedia(mediaId: String, completionHandler: @escaping ([Media.Caption]?, Error?) -> Void) {
         let route: Wistia.Route = .mediaCaptions(id: mediaId)
         let request = createRequest(route: route, httpMethod: .get, queryParams: ["limit":"100"], httpBody: nil)
         let task = session.dataTask(with: request) { (data, response, error) in
@@ -217,7 +217,7 @@ extension Wistia {
     ///   - mediaId: the hashed id needed to identify the media item.
     ///   - assetType: the type of file that you want to filter by
     ///   - completionHandler: returns an optional array of Media Assets or error. Error will be a network related error or a `WistiaError` depending on the issue.
-    func showAssetsForMedia(mediaId: String, matchingAssetType assetType: String, completionHandler: @escaping ([Media.Asset]?, Error?) -> Void) {
+    public func showAssetsForMedia(mediaId: String, matchingAssetType assetType: String, completionHandler: @escaping ([Media.Asset]?, Error?) -> Void) {
         
         showMedia(hashed_id: mediaId) { (media, error) in
             let assets = media?.assets.filter { $0.type.localizedCaseInsensitiveContains(assetType) }
