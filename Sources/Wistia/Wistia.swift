@@ -62,14 +62,14 @@ extension Wistia {
             let height: Int
         }
         
-        public struct Caption: Codable {
-            let english_name: String
-            let native_name: String
-            let language: String
-            let text: String
+        public struct Caption: Codable, Equatable {
+            public let english_name: String
+            public let native_name: String
+            public let language: String
+            public let text: String
         }
         
-        public struct Asset: Codable {
+        public struct Asset: Codable, Equatable {
             public let url: URL
             public let contentType: String
             public let type: String
@@ -120,7 +120,6 @@ extension Wistia {
 }
 
 fileprivate func parse<T: Codable>(data: Data?, completionHandler: (T?, Error?) -> Void) {
-    print(#function)
     if let data = data {
         do {
             let decoder = JSONDecoder()
@@ -180,6 +179,7 @@ extension Wistia {
         let request = createRequest(route: route, httpMethod: .get, queryParams: ["limit":"100"], httpBody: nil)
         let task = session.dataTask(with: request) { (data, response, error) in
             
+//            print((response as! HTTPURLResponse).statusCode)
             if let error = error {
                 print(error)
                 return completionHandler(nil, error)
@@ -201,6 +201,7 @@ extension Wistia {
         let request = createRequest(route: route, httpMethod: .get, queryParams: ["limit":"100"], httpBody: nil)
         let task = session.dataTask(with: request) { (data, response, error) in
             
+//            print((response as! HTTPURLResponse).statusCode)
             if let error = error {
                 print(error)
                 return completionHandler([], error)
