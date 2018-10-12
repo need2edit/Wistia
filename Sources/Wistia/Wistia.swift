@@ -39,7 +39,7 @@ extension Wistia {
     
     // MARK: - Projects
     public struct Project: Codable {
-        public let hashed_id: String
+        public let hashedId: String
         public let medias: [Media]
     }
     
@@ -51,10 +51,11 @@ extension Wistia {
         public let type: String
         public let description: String
         public let section: String?
+        public let duration: Double?
         
         public let thumbnail: Thumbnail
         
-        public let assets: [Asset]
+        public let assets: [Asset] = []
         
         public struct Thumbnail: Codable {
             let url: URL
@@ -153,7 +154,7 @@ extension Wistia {
     ///   - completionHandler: returns an optional project or error. Error will be a network related error or a `WistiaError` depending on the issue.
     public func showProject(hashed_id: String, completionHandler: @escaping (Wistia.Project?, Error?) -> Void) {
         
-        let route: Wistia.Route = .media(id: hashed_id)
+        let route: Wistia.Route = .project(id: hashed_id)
         let request = createRequest(route: route, httpMethod: .get, queryParams: ["limit":"100"], httpBody: nil)
         let task = session.dataTask(with: request) { (data, response, error) in
             
@@ -161,6 +162,7 @@ extension Wistia {
                 print(error)
                 return completionHandler(nil, error)
             }
+            
             parse(data: data, completionHandler: completionHandler)
             
         }
@@ -175,7 +177,7 @@ extension Wistia {
     ///   - completionHandler: returns an optional project or error. Error will be a network related error or a `WistiaError` depending on the issue.
     public func showMedia(hashed_id: String, completionHandler: @escaping (Wistia.Media?, Error?) -> Void) {
         
-        let route: Wistia.Route = .project(id: hashed_id)
+        let route: Wistia.Route = .media(id: hashed_id)
         let request = createRequest(route: route, httpMethod: .get, queryParams: ["limit":"100"], httpBody: nil)
         let task = session.dataTask(with: request) { (data, response, error) in
             
