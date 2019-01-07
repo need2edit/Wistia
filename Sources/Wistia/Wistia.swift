@@ -7,10 +7,18 @@ public class Wistia {
     // MARK: Properties
     public let baseURL = "https://api.wistia.com/v1/"
     private let api_password: String
-    private let session = URLSession.shared
+    internal let session = URLSession.shared
     
     public init(api_password: String) {
         self.api_password = api_password
+    }
+    
+    public var debugMode: DebugMode = .off
+    
+    public enum DebugMode {
+        case off
+        case normal
+        case verbose
     }
     
 }
@@ -94,7 +102,7 @@ extension Wistia {
     /// - media: show the details for a media with an ID
     /// - mediaCaptions:  show the captions files for a media with an ID
     /// - project:  show the details for a project with an ID
-    public enum Route {
+    public enum Route: RouteType {
         
         case medias
         case projects
@@ -120,7 +128,7 @@ extension Wistia {
     
 }
 
-fileprivate func parse<T: Codable>(data: Data?, completionHandler: (T?, Error?) -> Void) {
+internal func parse<T: Codable>(data: Data?, completionHandler: (T?, Error?) -> Void) {
     if let data = data {
         do {
             let decoder = JSONDecoder()
@@ -137,15 +145,34 @@ fileprivate func parse<T: Codable>(data: Data?, completionHandler: (T?, Error?) 
 // MARK: - Networking
 extension Wistia {
     
-    private func createRequest(route: Route, httpMethod: HTTPMethod, queryParams: [String: String], httpBody: Data?) -> URLRequest {
-        let urlString = baseURL + route.path + "?api_password=\(api_password)"
-        let url = URL(string: urlString)!
+    internal func createRequest(route: RouteType, httpMethod: HTTPMethod, queryParams: [String: String], httpBody: Data?) -> URLRequest {
+        
+        // handle this with an adapter in another framework
+        var newQueryParams = queryParams
+        newQueryParams["api_password"] = api_password
+        
+        let urlString = baseURL + route.path
+        
+        var url = URL(string: urlString)!
+        url = url.appendingQueryParameters(newQueryParams)
+        
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
         request.httpBody = httpBody
+    
+        switch self.debugMode {
+        case .off:
+            break
+        case .normal:
+            print(request.description)
+        case .verbose:
+            print(route)
+            print(request.url ?? "No URL")
+            print(request.debugDescription)
+        }
+        
         return request
     }
-    
     
     /// Gets the details for a project with a provided id.
     ///
@@ -181,7 +208,6 @@ extension Wistia {
         let request = createRequest(route: route, httpMethod: .get, queryParams: ["limit":"100"], httpBody: nil)
         let task = session.dataTask(with: request) { (data, response, error) in
             
-//            print((response as! HTTPURLResponse).statusCode)
             if let error = error {
                 print(error)
                 return completionHandler(nil, error)
@@ -203,7 +229,6 @@ extension Wistia {
         let request = createRequest(route: route, httpMethod: .get, queryParams: ["limit":"100"], httpBody: nil)
         let task = session.dataTask(with: request) { (data, response, error) in
             
-//            print((response as! HTTPURLResponse).statusCode)
             if let error = error {
                 print(error)
                 return completionHandler([], error)
