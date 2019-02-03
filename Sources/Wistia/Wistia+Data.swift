@@ -33,7 +33,7 @@ extension Wistia {
         
         public let thumbnail: Thumbnail
         
-        public let assets: [Asset] = []
+        public let assets: [Asset]?
         
         public let embedCode: String?
         
@@ -236,14 +236,14 @@ extension Wistia.Media {
     /// - Parameter assetType: enum from data API
     /// - Returns: an array of media assets
     func assetsMatching(assetType: String) -> [Asset] {
-        return assets.filter { $0.type.rawValue.localizedCaseInsensitiveContains(assetType) }
+        return (assets ?? []).filter { $0.type.rawValue.localizedCaseInsensitiveContains(assetType) }
     }
     /// Provides any assets matching a given asset type.
     ///
     /// - Parameter assetType: enum from data API
     /// - Returns: an array of media assets
     func assetsMatching(assetType: Asset.AssetKind) -> [Asset] {
-        return assets.filter { $0.type.rawValue == assetType.rawValue }
+        return (assets ?? []).filter { $0.type.rawValue == assetType.rawValue }
     }
 }
 
