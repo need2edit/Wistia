@@ -13,8 +13,11 @@ extension Wistia {
     
     // MARK: - Projects
     public struct Project: Codable {
+        public let id: Int
+        public let name: String
         public let hashedId: String
-        public let medias: [Media]
+        public let medias: [Media]?
+        public let description: String?
     }
     
     // MARK: - Medias
