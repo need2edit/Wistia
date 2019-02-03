@@ -35,7 +35,7 @@ extension Wistia {
         
         public let assets: [Asset] = []
         
-        public let embedCode: String?
+//        public let embedCode: String?
         
         public struct Thumbnail: Codable {
             let url: URL
@@ -63,7 +63,7 @@ extension Wistia {
                 case storyboard = "StoryboardFile"
             }
             
-            public let url: URL
+            public let url: String
             public let contentType: String
             public let type: String
             public let fileSize: Int
