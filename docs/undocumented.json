@@ -1,0 +1,642 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/NetworkingHelpers.swift",
+      "line": 10,
+      "symbol": "HTTPMethod",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/NetworkingHelpers.swift",
+      "line": 11,
+      "symbol": "HTTPMethod.get",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/NetworkingHelpers.swift",
+      "line": 12,
+      "symbol": "HTTPMethod.put",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/NetworkingHelpers.swift",
+      "line": 13,
+      "symbol": "HTTPMethod.update",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/NetworkingHelpers.swift",
+      "line": 14,
+      "symbol": "HTTPMethod.delete",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/NetworkingHelpers.swift",
+      "line": 17,
+      "symbol": "RouteType",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/NetworkingHelpers.swift",
+      "line": 18,
+      "symbol": "RouteType.path",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": null,
+      "symbol": "Wistia.Media.Asset",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 15,
+      "symbol": "Wistia.Project",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 16,
+      "symbol": "Wistia.Project.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 17,
+      "symbol": "Wistia.Project.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 18,
+      "symbol": "Wistia.Project.hashedId",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 19,
+      "symbol": "Wistia.Project.medias",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 20,
+      "symbol": "Wistia.Project.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 21,
+      "symbol": "Wistia.Project.mediaCount",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 25,
+      "symbol": "Wistia.Media",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 27,
+      "symbol": "Wistia.Media.hashed_id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 28,
+      "symbol": "Wistia.Media.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 29,
+      "symbol": "Wistia.Media.type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 30,
+      "symbol": "Wistia.Media.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 31,
+      "symbol": "Wistia.Media.section",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 32,
+      "symbol": "Wistia.Media.duration",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 34,
+      "symbol": "Wistia.Media.thumbnail",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 36,
+      "symbol": "Wistia.Media.assets",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 38,
+      "symbol": "Wistia.Media.embedCode",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 40,
+      "symbol": "Wistia.Media.Thumbnail",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 46,
+      "symbol": "Wistia.Media.Caption",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 47,
+      "symbol": "Wistia.Media.Caption.english_name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 48,
+      "symbol": "Wistia.Media.Caption.native_name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 49,
+      "symbol": "Wistia.Media.Caption.language",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 50,
+      "symbol": "Wistia.Media.Caption.text",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 53,
+      "symbol": "Wistia.Media.Asset",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 55,
+      "symbol": "Wistia.Media.Asset.AssetKind",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 56,
+      "symbol": "Wistia.Media.Asset.AssetKind.original",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 57,
+      "symbol": "Wistia.Media.Asset.AssetKind.iphone",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 58,
+      "symbol": "Wistia.Media.Asset.AssetKind.hls",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 59,
+      "symbol": "Wistia.Media.Asset.AssetKind.smallMP4",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 60,
+      "symbol": "Wistia.Media.Asset.AssetKind.standardDefinitionMP4",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 61,
+      "symbol": "Wistia.Media.Asset.AssetKind.highDefinitionMP4",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 62,
+      "symbol": "Wistia.Media.Asset.AssetKind.image",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 63,
+      "symbol": "Wistia.Media.Asset.AssetKind.storyboard",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 66,
+      "symbol": "Wistia.Media.Asset.url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 67,
+      "symbol": "Wistia.Media.Asset.contentType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 68,
+      "symbol": "Wistia.Media.Asset.type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 69,
+      "symbol": "Wistia.Media.Asset.fileSize",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 70,
+      "symbol": "Wistia.Media.Asset.height",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 71,
+      "symbol": "Wistia.Media.Asset.width",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 73,
+      "symbol": "Wistia.Media.Asset.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 106,
+      "symbol": "Wistia.DataRoute.medias",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 107,
+      "symbol": "Wistia.DataRoute.projects",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 108,
+      "symbol": "Wistia.DataRoute.media(id:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 109,
+      "symbol": "Wistia.DataRoute.mediaCaptions(id:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 110,
+      "symbol": "Wistia.DataRoute.project(id:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 112,
+      "symbol": "Wistia.DataRoute.path",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Data.swift",
+      "line": 154,
+      "symbol": "Wistia.listProjects(page:per_page:completionHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": null,
+      "symbol": "Wistia.Stats",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 12,
+      "symbol": "Wistia.StatsRoute",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 41,
+      "symbol": "Wistia.StatsRoute.path",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 66,
+      "symbol": "Wistia.Stats",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 72,
+      "symbol": "Wistia.Stats.Visitor",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 74,
+      "symbol": "Wistia.Stats.Visitor.visitor_key",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 75,
+      "symbol": "Wistia.Stats.Visitor.load_count",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 76,
+      "symbol": "Wistia.Stats.Visitor.play_count",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 80,
+      "symbol": "Wistia.Stats.VisitorIdentity",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 82,
+      "symbol": "Wistia.Stats.VisitorIdentity.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 83,
+      "symbol": "Wistia.Stats.VisitorIdentity.email",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 84,
+      "symbol": "Wistia.Stats.VisitorIdentity.org",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 88,
+      "symbol": "Wistia.Stats.UserAgentDetails",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 89,
+      "symbol": "Wistia.Stats.UserAgentDetails.browser",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 90,
+      "symbol": "Wistia.Stats.UserAgentDetails.browserVersion",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 91,
+      "symbol": "Wistia.Stats.UserAgentDetails.platform",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 92,
+      "symbol": "Wistia.Stats.UserAgentDetails.mobile",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 95,
+      "symbol": "Wistia.Stats.Event",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 96,
+      "symbol": "Wistia.Stats.Event.event_key",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 97,
+      "symbol": "Wistia.Stats.Event.email",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 98,
+      "symbol": "Wistia.Stats.Event.percent_viewed",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 99,
+      "symbol": "Wistia.Stats.Event.media_id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 100,
+      "symbol": "Wistia.Stats.Event.media_name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 101,
+      "symbol": "Wistia.Stats.Event.embed_url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 111,
+      "symbol": "Wistia.showVisitors(search:page:per_page:completionHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia+Stats.swift",
+      "line": 130,
+      "symbol": "Wistia.showEventsForVisitor(visitorKey:page:per_page:completionHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia.swift",
+      "line": 8,
+      "symbol": "Wistia.baseURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia.swift",
+      "line": 12,
+      "symbol": "Wistia.init(api_password:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia.swift",
+      "line": 16,
+      "symbol": "Wistia.debugMode",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia.swift",
+      "line": 18,
+      "symbol": "Wistia.DebugMode",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia.swift",
+      "line": 19,
+      "symbol": "Wistia.DebugMode.off",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia.swift",
+      "line": 20,
+      "symbol": "Wistia.DebugMode.normal",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia.swift",
+      "line": 21,
+      "symbol": "Wistia.DebugMode.verbose",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia.swift",
+      "line": 28,
+      "symbol": "Wistia.WistiaError",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia.swift",
+      "line": 29,
+      "symbol": "Wistia.WistiaError.invalidAPIKey",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jyo/repos/Wistia/Sources/Wistia/Wistia.swift",
+      "line": 30,
+      "symbol": "Wistia.WistiaError.noData",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/jyo/repos/Wistia"
+}
