@@ -124,6 +124,21 @@ internal func parse<T: Codable>(data: Data?, completionHandler: (T?, Error?) -> 
 // MARK: - Project
 extension Wistia {
     
+    public func listProjects(page: Int, per_page: Int, completionHandler: @escaping ([Wistia.Project]?, Error?) -> Void) {
+        let route: Wistia.DataRoute = .projects
+        let request = createRequest(route, queryParams: ["limit":"100"])
+        let task = session.dataTask(with: request) { (data, response, error) in
+            
+            if let error = error {
+                print(error)
+                return completionHandler(nil, error)
+            }
+            
+            parse(data: data, completionHandler: completionHandler)
+            
+        }
+        task.resume()
+    }
     /// Gets the details for a project with a provided id.
     ///
     /// - Parameters:
@@ -132,7 +147,7 @@ extension Wistia {
     public func showProject(hashed_id: String, completionHandler: @escaping (Wistia.Project?, Error?) -> Void) {
         
         let route: Wistia.DataRoute = .project(id: hashed_id)
-        let request = createRequest(route, queryParams: ["limit":"100"], httpBody: nil)
+        let request = createRequest(route, queryParams: ["limit":"100"])
         let task = session.dataTask(with: request) { (data, response, error) in
             
             if let error = error {

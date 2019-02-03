@@ -25,7 +25,6 @@ public class Wistia {
 
 // MARK: - Error Handling
 extension Wistia {
-    
     public enum WistiaError: Error, CustomStringConvertible {
         case invalidAPIKey
         case noData
@@ -39,12 +38,9 @@ extension Wistia {
             }
         }
     }
-    
 }
 
 extension Wistia {
-    
-    
     /// Creates a request using a generic route type and adds the API password to it.
     ///
     /// - Parameters:
