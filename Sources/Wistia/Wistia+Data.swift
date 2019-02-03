@@ -18,6 +18,7 @@ extension Wistia {
         public let hashedId: String
         public let medias: [Media]?
         public let description: String?
+        public let mediaCount: Int?
     }
     
     // MARK: - Medias
@@ -64,7 +65,7 @@ extension Wistia {
             
             public let url: URL
             public let contentType: String
-            public let type: AssetKind
+            public let type: String
             public let fileSize: Int
             public let height: Int
             public let width: Int
@@ -235,14 +236,14 @@ extension Wistia.Media {
     /// - Parameter assetType: enum from data API
     /// - Returns: an array of media assets
     func assetsMatching(assetType: String) -> [Asset] {
-        return assets.filter { $0.type.rawValue.localizedCaseInsensitiveContains(assetType) }
+        return assets.filter { $0.type.localizedCaseInsensitiveContains(assetType) }
     }
     /// Provides any assets matching a given asset type.
     ///
     /// - Parameter assetType: enum from data API
     /// - Returns: an array of media assets
     func assetsMatching(assetType: Asset.AssetKind) -> [Asset] {
-        return assets.filter { $0.type == assetType }
+        return assets.filter { $0.type == assetType.rawValue }
     }
 }
 
