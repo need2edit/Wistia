@@ -35,7 +35,7 @@ extension Wistia {
         
         public let assets: [Asset] = []
         
-//        public let embedCode: String?
+        public let embedCode: String?
         
         public struct Thumbnail: Codable {
             let url: URL
@@ -65,7 +65,7 @@ extension Wistia {
             
             public let url: String
             public let contentType: String
-            public let type: String
+            public let type: AssetKind
             public let fileSize: Int
             public let height: Int
             public let width: Int
@@ -236,14 +236,14 @@ extension Wistia.Media {
     /// - Parameter assetType: enum from data API
     /// - Returns: an array of media assets
     func assetsMatching(assetType: String) -> [Asset] {
-        return assets.filter { $0.type.localizedCaseInsensitiveContains(assetType) }
+        return assets.filter { $0.type.rawValue.localizedCaseInsensitiveContains(assetType) }
     }
     /// Provides any assets matching a given asset type.
     ///
     /// - Parameter assetType: enum from data API
     /// - Returns: an array of media assets
     func assetsMatching(assetType: Asset.AssetKind) -> [Asset] {
-        return assets.filter { $0.type == assetType.rawValue }
+        return assets.filter { $0.type.rawValue == assetType.rawValue }
     }
 }
 
