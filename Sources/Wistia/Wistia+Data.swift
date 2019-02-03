@@ -125,6 +125,14 @@ internal func parse<T: Codable>(data: Data?, completionHandler: (T?, Error?) -> 
     }
 }
 
+internal func parseHandlingError<T: Codable>(_ data: Data?, _ error: Error?, _ completionHandler: (T?, Error?) -> Void) {
+    if let error = error {
+        print(error)
+        return completionHandler(nil, error)
+    }
+    parse(data: data, completionHandler: completionHandler)
+}
+
 // MARK: - Project
 extension Wistia {
     
@@ -132,14 +140,7 @@ extension Wistia {
         let route: Wistia.DataRoute = .projects
         let request = createRequest(route, queryParams: ["limit":"100"])
         let task = session.dataTask(with: request) { (data, response, error) in
-            
-            if let error = error {
-                print(error)
-                return completionHandler(nil, error)
-            }
-            
-            parse(data: data, completionHandler: completionHandler)
-            
+            parseHandlingError(data, error, completionHandler)
         }
         task.resume()
     }
@@ -149,18 +150,10 @@ extension Wistia {
     ///   - hashed_id: the hashed id needed to identify the project.
     ///   - completionHandler: returns an optional project or error. Error will be a network related error or a `WistiaError` depending on the issue.
     public func showProject(hashed_id: String, completionHandler: @escaping (Wistia.Project?, Error?) -> Void) {
-        
         let route: Wistia.DataRoute = .project(id: hashed_id)
         let request = createRequest(route, queryParams: ["limit":"100"])
         let task = session.dataTask(with: request) { (data, response, error) in
-            
-            if let error = error {
-                print(error)
-                return completionHandler(nil, error)
-            }
-            
-            parse(data: data, completionHandler: completionHandler)
-            
+            parseHandlingError(data, error, completionHandler)
         }
         task.resume()
     }
@@ -171,17 +164,10 @@ extension Wistia {
     ///   - hashed_id: the hashed id needed to identify the media item.
     ///   - completionHandler: returns an optional project or error. Error will be a network related error or a `WistiaError` depending on the issue.
     public func showMedia(hashed_id: String, completionHandler: @escaping (Wistia.Media?, Error?) -> Void) {
-        
         let route: Wistia.DataRoute = .media(id: hashed_id)
         let request = createRequest(route, queryParams: ["limit":"100"])
         let task = session.dataTask(with: request) { (data, response, error) in
-            
-            if let error = error {
-                print(error)
-                return completionHandler(nil, error)
-            }
-            parse(data: data, completionHandler: completionHandler)
-            
+            parseHandlingError(data, error, completionHandler)
         }
         task.resume()
     }
@@ -195,13 +181,7 @@ extension Wistia {
         let route: Wistia.DataRoute = .mediaCaptions(id: mediaId)
         let request = createRequest(route, queryParams: ["limit":"100"])
         let task = session.dataTask(with: request) { (data, response, error) in
-            
-            if let error = error {
-                print(error)
-                return completionHandler([], error)
-            }
-            
-            parse(data: data, completionHandler: completionHandler)
+            parseHandlingError(data, error, completionHandler)
         }
         task.resume()
     }
