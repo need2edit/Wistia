@@ -69,6 +69,23 @@ extension Wistia {
             public let fileSize: Int
             public let height: Int
             public let width: Int
+            
+            public var name: String {
+                switch self.type {
+                case .smallMP4, .standardDefinitionMP4, .highDefinitionMP4:
+                    return "\(height)P"
+                case .storyboard:
+                    return "Storyboard"
+                case .original:
+                    return "Original"
+                case .iphone:
+                    return "iPhone"
+                case .hls:
+                    return "HLS"
+                case .image:
+                    return "Image"
+                }
+            }
         }
     }
     
@@ -77,7 +94,6 @@ extension Wistia {
 
 // MARK: - Routes & Endpoints
 extension Wistia {
-    
     /// Controls the common places of interacting with the Wistia Data API.
     ///
     /// - medias: list all the medias in your Wistia account
@@ -135,7 +151,6 @@ internal func parseHandlingError<T: Codable>(_ data: Data?, _ error: Error?, _ c
 
 // MARK: - Project
 extension Wistia {
-    
     public func listProjects(page: Int, per_page: Int, completionHandler: @escaping ([Wistia.Project]?, Error?) -> Void) {
         let route: Wistia.DataRoute = .projects
         let request = createRequest(route, queryParams: ["limit":"100"])
@@ -157,7 +172,6 @@ extension Wistia {
         }
         task.resume()
     }
-    
     /// Show the details for a given media.
     ///
     /// - Parameters:
@@ -171,7 +185,6 @@ extension Wistia {
         }
         task.resume()
     }
-    
     /// Lists all the captions entries for a given media.
     ///
     /// - Parameters:
@@ -185,7 +198,6 @@ extension Wistia {
         }
         task.resume()
     }
-    
     /// Lists all the assets that match a given query. You often may just want the original video file.
     ///
     /// - Parameters:
@@ -193,21 +205,16 @@ extension Wistia {
     ///   - assetType: the type of file that you want to filter by
     ///   - completionHandler: returns an optional array of Media Assets or error. Error will be a network related error or a `WistiaError` depending on the issue.
     public func showAssetsForMedia(mediaId: String, matchingAssetType assetType: String? = nil, completionHandler: @escaping ([Media.Asset]?, Error?) -> Void) {
-        
         showMedia(hashed_id: mediaId) { (media, error) in
-            
             var filtered: [Media.Asset]?
             if assetType == nil {
                 filtered = media?.assets
             } else {
                 filtered = media?.assetsMatching(assetType: assetType!)
             }
-            
             completionHandler(filtered, error)
         }
-        
     }
-    
 }
 
 extension Wistia.Media {
