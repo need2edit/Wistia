@@ -10,6 +10,7 @@ import Foundation
 public enum HTTPMethod: String {
     case get = "GET"
     case put = "PUT"
+    case update = "UPDATE"
     case delete = "DELETE"
 }
 
