@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		321B3ADF21DFF8270003E4DC /* Wistia+Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321B3ADE21DFF8270003E4DC /* Wistia+Stats.swift */; };
+		32408A5B220A2E260084DEC0 /* URLDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32408A5A220A2E260084DEC0 /* URLDetection.swift */; };
 		3242441A2206616600FB382A /* Wistia+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324244192206616600FB382A /* Wistia+Data.swift */; };
 		OBJ_23 /* NetworkingHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* NetworkingHelpers.swift */; };
 		OBJ_24 /* Wistia.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Wistia.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		321B3ADE21DFF8270003E4DC /* Wistia+Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wistia+Stats.swift"; sourceTree = "<group>"; };
+		32408A5A220A2E260084DEC0 /* URLDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLDetection.swift; sourceTree = "<group>"; };
 		324244192206616600FB382A /* Wistia+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wistia+Data.swift"; sourceTree = "<group>"; };
 		OBJ_10 /* Wistia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wistia.swift; sourceTree = "<group>"; };
 		OBJ_13 /* WistiaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WistiaTests.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				324244192206616600FB382A /* Wistia+Data.swift */,
 				321B3ADE21DFF8270003E4DC /* Wistia+Stats.swift */,
 				OBJ_9 /* NetworkingHelpers.swift */,
+				32408A5A220A2E260084DEC0 /* URLDetection.swift */,
 			);
 			name = Wistia;
 			path = Sources/Wistia;
@@ -220,6 +223,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_23 /* NetworkingHelpers.swift in Sources */,
+				32408A5B220A2E260084DEC0 /* URLDetection.swift in Sources */,
 				321B3ADF21DFF8270003E4DC /* Wistia+Stats.swift in Sources */,
 				3242441A2206616600FB382A /* Wistia+Data.swift in Sources */,
 				OBJ_24 /* Wistia.swift in Sources */,

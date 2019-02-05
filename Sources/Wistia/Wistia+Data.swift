@@ -151,6 +151,14 @@ internal func parseHandlingError<T: Codable>(_ data: Data?, _ error: Error?, _ c
 
 // MARK: - Project
 extension Wistia {
+    public func listMedias(page: Int, per_page: Int, searchText: String?, completionHandler: @escaping ([Wistia.Project]?, Error?) -> Void) {
+        let route: Wistia.DataRoute = .medias
+        let request = createRequest(route, queryParams: ["limit":"100"])
+        let task = session.dataTask(with: request) { (data, response, error) in
+            parseHandlingError(data, error, completionHandler)
+        }
+        task.resume()
+    }
     public func listProjects(page: Int, per_page: Int, completionHandler: @escaping ([Wistia.Project]?, Error?) -> Void) {
         let route: Wistia.DataRoute = .projects
         let request = createRequest(route, queryParams: ["limit":"100"])
