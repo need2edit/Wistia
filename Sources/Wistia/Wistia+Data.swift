@@ -91,6 +91,17 @@ extension Wistia {
     
 }
 
+extension Wistia.Media {
+    public var durationReadable: String {
+        guard let duration = duration else { return "N/A" }
+        
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.unitsStyle = .positional
+        return formatter.string(from: TimeInterval(duration))!
+    }
+}
+
 
 // MARK: - Routes & Endpoints
 extension Wistia {
@@ -142,6 +153,10 @@ internal func parse<T: Codable>(data: Data?, completionHandler: (T?, Error?) -> 
 }
 
 internal func parseHandlingError<T: Codable>(_ data: Data?, _ error: Error?, _ completionHandler: (T?, Error?) -> Void) {
+    
+    // you might get an error like this
+    // {"code":"unauthorized_scope","error":"This access token does not have permission to perform this action."}
+    
     if let error = error {
         print(error)
         return completionHandler(nil, error)
@@ -188,6 +203,30 @@ extension Wistia {
     public func showMedia(hashed_id: String, completionHandler: @escaping (Wistia.Media?, Error?) -> Void) {
         let route: Wistia.DataRoute = .media(id: hashed_id)
         let request = createRequest(route, queryParams: ["limit":"100"])
+        let task = session.dataTask(with: request) { (data, response, error) in
+            parseHandlingError(data, error, completionHandler)
+        }
+        task.resume()
+    }
+    /// Show the details for a given media.
+    ///
+    /// - Parameters:
+    ///   - hashed_id: the hashed id needed to identify the media item.
+    ///   - completionHandler: returns an optional project or error. Error will be a network related error or a `WistiaError` depending on the issue.
+    public func updateMedia(hashed_id: String, name: String?, description: String?, completionHandler: @escaping (Wistia.Media?, Error?) -> Void) {
+        let route: Wistia.DataRoute = .media(id: hashed_id)
+        
+        var params = [String: String]()
+        
+        if name != nil {
+            params["name"] = name!
+        }
+        
+        if description != nil {
+            params["description"] = description!
+        }
+        
+        let request = createRequest(route, httpMethod: .put, queryParams: params, httpBody: nil)
         let task = session.dataTask(with: request) { (data, response, error) in
             parseHandlingError(data, error, completionHandler)
         }
